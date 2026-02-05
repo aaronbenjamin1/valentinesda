@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: 255 252 245;
+  --ink: 18 18 18;
+}
+
+/* Reset the “2000s link look” globally */
+a, a:visited, a:hover, a:active { color: inherit; text-decoration: none; }
+
+html, body { height: 100%; }
+
+body {
+  color: rgb(var(--ink));
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Desk-ish background */
+  background:
+    radial-gradient(1100px 700px at 25% 10%, rgba(255,255,255,0.95) 0%, rgba(247,241,232,0.96) 55%, rgba(239,229,214,0.98) 100%),
+    radial-gradient(900px 500px at 80% 30%, rgba(255, 210, 230, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 30% 70%, rgba(210, 235, 255, 0.14), transparent 60%);
+}
+
+/* Subtle grain */
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* Handwriting font */
+.handwriting {
+  font-family: var(--font-hand), ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: 0.2px;
+}
+
+/* Polaroid */
+.polaroid {
+  background: rgb(var(--paper));
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.18),
+    0 6px 14px rgba(0,0,0,0.08);
+}
+
+.polaroid-photo {
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background:
+    radial-gradient(180px 140px at 25% 20%, rgba(255,255,255,0.85), transparent 60%),
+    linear-gradient(135deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft vignette */
+.polaroid-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(closest-side, transparent 55%, rgba(0,0,0,0.10) 100%);
+  opacity: 0.55;
+}
+
+/* Tape */
+.tape {
+  position: absolute;
+  width: 120px;
+  height: 38px;
+  background: rgba(255, 235, 130, 0.72);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.10);
+  border-radius: 12px;
+  transform: rotate(-8deg);
+}
+
+/* Hide scrollbars but keep scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* pink highlighter underline */
+.scribble { position: relative; display: inline-block; }
+.scribble::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.14em;
+  height: 0.46em;
+  background: rgba(255, 105, 180, 0.20);
+  filter: blur(0.2px);
+  transform: rotate(-1deg);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+/* Fade overlay for horizontal scroller WITHOUT clipping content */
+.edge-fade-overlay {
+  position: relative;
+}
+.edge-fade-overlay::before,
+.edge-fade-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  pointer-events: none;
+  z-index: 20;
+}
+.edge-fade-overlay::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.0), rgba(247,241,232,0.95));
+}
+.edge-fade-overlay::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0.0), rgba(247,241,232,0.95));
+}
+/* Mobile-friendly viewport height (prevents weird cutoffs on iOS/Chrome UI) */
+.min-svh { min-height: 100svh; }
+
+/* Safe-area padding helpers (notch devices) */
+.pt-safe { padding-top: env(safe-area-inset-top); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
