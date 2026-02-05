@@ -12,7 +12,7 @@ const SLIDES: Slide[] = [
   { title: "First Tree!", body: "Our first big Christmas tree at our new place!", big: "🎄", image: "/photos/wrapped/02.jpeg" },
   { title: "Big Beanits", body: "Using your beanits.", big: "🫶", image: "/photos/wrapped/03.jpeg" },
   { title: "KITTIES", body: "Cayuts ZOI ZOI ZOI", big: "🐈", image: "/photos/wrapped/cats.jpeg" },
-  { title: "MARRIED!!", body: "WE GOT MEOWIED!", big: "YAY YAY YAY!!!!!", image: "/photos/wrapped/05.jpeg" },
+  { title: "MARRIED!!", body: "WE GOT MEOWIED!", big: "YAY YAY YAY!!!!!", image: "/photos/wrapped/05.JPEG" },
   { title: "Final Slide", body: "This unlocks something on the main menu.", big: "🔓" },
 ];
 
