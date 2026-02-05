@@ -66,7 +66,7 @@ export default function FinalPage() {
                 </button>
               </div>
 
-              <p className="mt-5 opacity-80">Screenshot this, I dare you.</p>
+              <p className="mt-5 opacity-80">I hope u like da confetti.</p>
             </div>
           )}
         </div>
