@@ -57,7 +57,7 @@ export default function HomePage() {
                   href="/escape"
                   rotationDeg={rot.a}
                   done={progress.escape}
-                  image="/photos/escape.jpeg"
+                  image="/photos/escape.JPEG"
                 />
               </div>
 
